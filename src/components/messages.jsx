@@ -48,7 +48,7 @@ const Messages = () => {
                     <div key={message.id} className={classNames('flex items-center gap-4', isCurrentUserMsg && 'flex-row-reverse')}>
                         <p className="w-10">{date}</p>
                         <img src={message.avatar} className="w-8 h-8 rounded-full" />
-                        <div className="bg-purple-500 px-5 py-1.5 rounded-xl text-gray-100">
+                        <div className={classNames('px-5 py-1.5 rounded-xl text-gray-100', isCurrentUserMsg ? 'bg-yellow-600' : 'bg-purple-500')}>
                             {message.text}
                         </div>
                     </div>

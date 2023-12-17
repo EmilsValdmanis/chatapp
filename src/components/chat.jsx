@@ -6,7 +6,7 @@ import Messages from "./messages"
 const Chat = () => {
     return (
         <div
-            className='container mx-auto grow flex flex-col p-10 bg-gray-400 dark:bg-gray-800 justify-between rounded-3xl shadow-xl'
+            className='container mx-auto grow flex flex-col p-10 bg-gray-400 dark:bg-gray-800 justify-between rounded-3xl shadow-xl gap-8'
         >
             <Messages/>
             <MessageInput/>
