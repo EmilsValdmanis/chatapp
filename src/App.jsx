@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
-import Navbar from "./components/navbar"
-import Chat from "./components/chat"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { auth } from "./utils/firebase.utils"
+
+import Navbar from "./components/navbar"
+import Chat from "./components/chat"
+import WelcomeCard from "./components/welcomeCard"
 import Loading from "./components/loading"
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
     <div className="flex flex-col min-h-screen text-gray-300 dark:text-gray-100">
       <Navbar user={user} />
       <main className="grow bg-gray-200 dark:bg-gray-700 flex p-5">
-        {showLoading || loading ? <Loading/> : <Chat user={user}/>}
+        {user && (showLoading || loading) ? <Loading/> : user ? <Chat/> : <WelcomeCard/>}
       </main>
     </div>
   )
