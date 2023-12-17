@@ -1,4 +1,5 @@
 import { signInWithGooglePopup } from "../utils/firebase.utils"
+import Button from "./button"
 
 const SignIn = () => {
     const logGoogleUser = async () => {
@@ -7,7 +8,12 @@ const SignIn = () => {
     }
 
     return (
-        <button onClick={logGoogleUser}>Sign In With Google</button>
+        <Button 
+            onClick={logGoogleUser}
+            outlined
+        >
+            Sign in
+        </Button>
     )
 }
 export default SignIn
