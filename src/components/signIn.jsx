@@ -22,7 +22,7 @@ const SignIn = ({ user }) => {
             )}
             {user && (
                 <div className="flex items-center gap-4">
-                    <p>{`Signed in as ${user.email}`}</p>
+                    <p className="hidden md:block">{`Signed in as ${user.email}`}</p>
                     <Button 
                         onClick={logOut}
                         outlined
