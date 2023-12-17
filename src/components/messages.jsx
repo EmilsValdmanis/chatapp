@@ -38,11 +38,16 @@ const Messages = () => {
         <div className="flex flex-col gap-4 text-gray-800 dark:text-gray-100">
             {messages.map(message => {
                 const isCurrentUserMsg = uid === message.uid
+                const date = message.createdAt &&
+                    new Date(message.createdAt.toDate()).toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    })
 
-                return (
+                if(date) return (
                     <div key={message.id} className={classNames('flex items-center gap-4', isCurrentUserMsg && 'flex-row-reverse')}>
-                        <p className="w-10">{new Date(message.createdAt.toDate()).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-                        <img src={message.avatar} className="w-8 h-8" />
+                        <p className="w-10">{date}</p>
+                        <img src={message.avatar} className="w-8 h-8 rounded-full" />
                         <div className="bg-purple-500 px-5 py-1.5 rounded-xl text-gray-100">
                             {message.text}
                         </div>
